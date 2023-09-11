@@ -1,0 +1,134 @@
+.movies-card {
+  position: relative;
+  display: block;
+}
+
+.movies-card__image {
+  display: block;
+  width: 100%;
+  max-height: 201px;
+  object-fit: cover;
+  object-position: center;
+  overflow: hidden;
+  border-radius: 6px;
+  line-height: 0;
+}
+
+.movies-card__save-button {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: none;
+  padding: 6px 7px;
+  min-width: 72px;
+  font-size: 10px;
+  line-height: 9px;
+  color: #fff;
+  background-color: #313131;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.movies-card__save-button:hover {
+  opacity: 0.8;
+}
+
+.movies-card__save-button_active {
+  display: block;
+}
+
+.movies-card__image-button {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: none;
+  padding: 0;
+  width: 21px;
+  height: 21px;
+  border: none;
+  cursor: pointer;
+}
+
+.movies-card__image-button:hover {
+  opacity: 0.8;
+}
+
+.movies-card__image-button_active {
+  display: block;
+}
+
+.movies-card__image-button_type_saved {
+  background: url(../../images/movies-card/saved-icon.svg);
+  background-size: contain;
+}
+
+.movies-card__image-button_type_delete {
+  background: url(../../images/movies-card/delete-icon.svg);
+  background-size: contain;
+}
+
+.movies-card__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 14px 14px 0;
+}
+
+.movies-card__title {
+  margin: 0;
+  padding-top: 1px;
+  max-width: 250px;
+  min-height: 32px;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.movies-card__duration {
+  display: block;
+  padding: 3px 4px;
+  font-size: 11px;
+  line-height: 12px;
+  color: #8b8b8b;
+  background-color: #2f2f2f;
+  border-radius: 3px;
+}
+
+@media screen and (max-width: 1040px) {
+  .movies-card__image {
+    max-height: 242px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .movies-card__info {
+    padding: 25px 0 0;
+  }
+
+  .movies-card__title {
+    min-height: 16px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}
+
+@media screen and (max-width: 590px) {
+  .movies-card__image {
+    max-height: 296px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .movies-card__info {
+    padding-top: 16px;
+  }
+
+  .movies-card__title {
+    max-width: 230px;
+    min-height: 15px;
+    font-size: 12px;
+    line-height: 15px;
+  }
+}
