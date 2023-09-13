@@ -11,7 +11,7 @@ function SavedMovies({ loggedIn }) {
       <Header loggedIn={loggedIn} />
       <main className="saved-movies">
         <SearchForm />
-        <MoviesCardList />
+        <MoviesCardList isCurrentPageMovies={false} />
       </main>
       <Footer />
     </>

@@ -11,7 +11,7 @@ function Movies({ loggedIn }) {
       <Header loggedIn={loggedIn} />
       <main className="movies">
         <SearchForm />
-        <MoviesCardList />
+        <MoviesCardList isCurrentPageMovies={true} />
         <MoreMovies />
       </main>
       <Footer />

@@ -1,11 +1,15 @@
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
-import searchIcon from '../../images/search-form/search-button.svg';
 import './SearchForm.css';
 
-function SearchForm({ onSubmit }) {
+function SearchForm() {
+  // Временный обработчик, чтобы не было ошибки при сабмите
+  function handleSubmit(evt) {
+    evt.preventDefault();
+  }
+
   return (
     <section className="search-form" aria-label="Панель поиска фильмов">
-      <form className="search-form__form" name="searchform" method="post" onSubmit={onSubmit}>
+      <form className="search-form__form" name="searchform" method="post" onSubmit={handleSubmit}>
         <div className="search-form__search-bar">
           <input
             id="search-input"
@@ -15,9 +19,7 @@ function SearchForm({ onSubmit }) {
             placeholder="Фильм"
             required
           />
-          <button className="search-form__button" type="submit">
-            <img className="search-form__icon" src={searchIcon} alt="Кнопка поиска" title="Найти" />
-          </button>
+          <button className="search-form__button" type="submit" title="Найти"></button>
           <span className="search-input-error search-form__input-error">Некорректный ввод</span>
         </div>
         <FilterCheckbox />

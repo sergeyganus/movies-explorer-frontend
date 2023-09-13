@@ -1,7 +1,11 @@
 .profile {
   box-sizing: border-box;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   margin: 0 auto;
-  padding-top: 74px;
+  padding-top: 70px;
   padding-bottom: 70px;
   max-width: 410px;
   width: 100%;
@@ -125,10 +129,20 @@
   cursor: pointer;
 }
 
+.profile__button_disabled {
+  opacity: 0.4;
+}
+
+.profile__button_disabled:hover {
+  opacity: 0.4;
+  cursor: default;
+}
+
 @media screen and (max-width: 768px) {
   .profile {
+    padding-left: 30px;
+    padding-right: 30px;
     max-width: 470px;
-    padding: 236px 30px 70px;
   }
 
   .profile__form {
@@ -137,6 +151,13 @@
 
   .profile__buttons-bar {
     padding-top: 200px;
+  }
+}
+
+@media screen and (max-width: 470px) {
+  .profile {
+    padding-top: 30px;
+    padding-bottom: 30px;
   }
 }
 
@@ -149,10 +170,6 @@
 
   .profile__form {
     padding-top: 80px;
-  }
-
-  .profile__buttons-bar {
-    padding-top: 369px;
   }
 
   .profile__button {

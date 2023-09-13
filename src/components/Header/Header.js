@@ -13,7 +13,7 @@ function Header({ loggedIn }) {
       {loggedIn &&
         <Navigation name={'header'}>
           <li className="navigation__links-item navigation__links-item_type_header">
-            <NavLink to="/movies" className="navigation__link navigation__link_type_header navigation__link_active">Фильмы</NavLink>
+            <NavLink to="/movies" className="navigation__link navigation__link_type_header">Фильмы</NavLink>
           </li>
           <li className="navigation__links-item navigation__links-item_type_header">
             <NavLink to="/saved-movies" className="navigation__link navigation__link_type_header">Сохранённые фильмы</NavLink>

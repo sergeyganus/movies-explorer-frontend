@@ -16,6 +16,10 @@
   height: 38px;
 }
 
+.header__logo-link:hover {
+  opacity: 0.7;
+}
+
 @media screen and (max-width: 1280px) {
   .header {
     padding-left: 70px;

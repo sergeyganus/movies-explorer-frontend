@@ -2,13 +2,18 @@ import { NavLink } from 'react-router-dom';
 import ComponentWithForm from '../ComponentWithForm/ComponentWithForm';
 import ErrorFromApi from '../ErrorFromApi/ErrorFromApi';
 
-function Register({ onSubmit }) {
+function Register() {
+  // Временный обработчик, чтобы не было ошибки при сабмите
+  function handleSubmit(evt) {
+    evt.preventDefault();
+  }
+
   return (
     <ComponentWithForm
       name={'register'}
       formName={'registerform'}
       title={'Добро пожаловать!'}
-      onSubmit={onSubmit}
+      onSubmit={handleSubmit}
     >
       <label className="component__label component__label_type_user-name" htmlFor="user-name-input">Имя</label>
       <input

@@ -12,7 +12,7 @@ function Menu({ isOpen, onClose }) {
             <NavLink to="/" className="navigation__link navigation__link_type_menu">Главная</NavLink>
           </li>
           <li className="navigation__links-item navigation__links-item_type_menu">
-            <NavLink to="/movies" className="navigation__link navigation__link_type_menu navigation__link_active">Фильмы</NavLink>
+            <NavLink to="/movies" className="navigation__link navigation__link_type_menu">Фильмы</NavLink>
           </li>
           <li className="navigation__links-item navigation__links-item_type_menu">
             <NavLink to="/saved-movies" className="navigation__link navigation__link_type_menu">Сохранённые фильмы</NavLink>

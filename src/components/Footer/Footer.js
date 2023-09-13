@@ -3,7 +3,7 @@ import './Footer.css';
 function Footer() {
   return (
     <footer className="footer">
-      <p className="footer__description">Учебный проект Яндекс.Практикум х BeatFilm.</p>
+      <h2 className="footer__description">Учебный проект Яндекс.Практикум х BeatFilm.</h2>
       <div className="footer__info">
         <p className="footer__copyright">&copy; 2020</p>
         <ul className="footer__links-list">

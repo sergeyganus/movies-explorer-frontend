@@ -2,13 +2,18 @@ import { NavLink } from 'react-router-dom';
 import ComponentWithForm from '../ComponentWithForm/ComponentWithForm';
 import ErrorFromApi from '../ErrorFromApi/ErrorFromApi';
 
-function Login({ onSubmit }) {
+function Login() {
+  // Временный обработчик, чтобы не было ошибки при сабмите
+  function handleSubmit(evt) {
+    evt.preventDefault();
+  }
+
   return (
     <ComponentWithForm
       name={'login'}
       formName={'loginform'}
       title={'Рады видеть!'}
-      onSubmit={onSubmit}
+      onSubmit={handleSubmit}
     >
       <label className="component__label component__label_type_user-email" htmlFor="user-email-input">E-mail</label>
       <input

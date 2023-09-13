@@ -117,7 +117,7 @@
 
 @media screen and (max-width: 320px) {
   .techs__container {
-    padding: 70px 18px 60px;
+    padding: 70px 18px 70px;
   }
 
   .techs__title {
@@ -144,6 +144,7 @@
   }
 
   .techs__tags {
+    justify-content: flex-start;
     padding-top: 50px;
     max-width: 180px;
   }
