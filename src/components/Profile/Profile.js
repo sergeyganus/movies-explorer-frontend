@@ -20,7 +20,6 @@ function Profile({ loggedIn, onUpdateUserProfile, onLogout }) {
   const { values, handleChange, setValues, errors, isNameValid, isEmailValid, isValid } = useFormWithValidation();
   const isFormValid = isNameValid && isEmailValid && isValid;
 
-
   function customHandleChange(e) {
     handleChange(e);
     setCustomIsValid(true);

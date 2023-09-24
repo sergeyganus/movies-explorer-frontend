@@ -9,8 +9,8 @@ export function useFormWithValidation() {
     password: ''
   });
   const [errors, setErrors] = React.useState({});
-  const [isNameValid, setIsNameValid] = React.useState(false);
-  const [isEmailValid, setIsEmailValid] = React.useState(false);
+  const [isNameValid, setIsNameValid] = React.useState(true);
+  const [isEmailValid, setIsEmailValid] = React.useState(true);
   const [isValid, setIsValid] = React.useState(false);
 
   const checkName = (name) => {
