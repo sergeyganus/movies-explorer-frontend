@@ -9,7 +9,7 @@ function ComponentWithForm({ name, formName, title, children, onSubmit }) {
         <Logo />
       </NavLink>
       <h1 className={`component__title component__title_type_${name}`}>{title}</h1>
-      <form className={`component__form component__form_type_${name}`} name={formName} method="post" onSubmit={onSubmit}>
+      <form className={`component__form component__form_type_${name}`} name={formName} method="post" onSubmit={onSubmit} noValidate>
         {children}
       </form>
     </main>

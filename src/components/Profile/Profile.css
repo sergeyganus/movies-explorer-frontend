@@ -29,19 +29,17 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
-  padding-bottom: 6px;
   border-bottom: 1px solid #424242;
 }
 
 .profile__field:nth-of-type(2) {
-  padding-top: 17px;
-  padding-bottom: 0;
+  padding-top: 20px;
   border-bottom: none;
 }
 
 .profile__label {
   display: inline-block;
-  padding-bottom: 10px;
+  padding-bottom: 5px;
   width: 50%;
   font-weight: 500;
   font-size: 11px;
@@ -62,19 +60,17 @@
 }
 
 .profile__input-error {
-  display: none;
-  margin-bottom: 10px;
+  display: block;
+  width: 100%;
+  min-height: 12px;
+  margin-bottom: 7px;
   font-size: 10px;
   line-height: 12px;
   color: #ee3465;
 }
 
-.profile__input-error_active {
-  display: block;
-}
-
 .profile__buttons-bar {
-  padding-top: 210px;
+  padding-top: 171px;
 }
 
 .profile__edit-profile-bar {
@@ -150,7 +146,7 @@
   }
 
   .profile__buttons-bar {
-    padding-top: 200px;
+    padding-top: 161px;
   }
 }
 
@@ -158,6 +154,19 @@
   .profile {
     padding-top: 30px;
     padding-bottom: 30px;
+  }
+
+  .profile__field:nth-of-type(2) {
+    padding-top: 27px;
+  }
+
+  .profile__label {
+    padding-bottom: 2px;
+  }
+
+  .profile__input-error {
+    min-height: 24px;
+    margin-bottom: 3px;
   }
 }
 

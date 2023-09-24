@@ -36,21 +36,16 @@
 
 .component__label {
   display: block;
-  padding-top: 10px;
   margin-bottom: 10px;
   font-size: 10px;
   line-height: 12px;
   color: #8B8B8B;
 }
 
-.component__label:first-of-type {
-  padding-top: 0;
-}
-
 .component__input {
   box-sizing: border-box;
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   padding: 15px;
   width: 100%;
   font-size: 13px;
@@ -67,10 +62,6 @@
   border-bottom: 1px solid #4285f4;
 }
 
-.component__input:last-of-type {
-  margin-bottom: 10px;
-}
-
 .component__input_type_user-email {
   font-weight: 500;
 }
@@ -80,23 +71,20 @@
 }
 
 .component__input-error {
-  display: none;
+  display: block;
+  min-height: 12px;
   margin-bottom: 10px;
   font-size: 10px;
   line-height: 12px;
   color: #ee3465;
 }
 
-.component__input-error_active {
-  display: block;
-}
-
 .component__buttons-bar {
-  padding-top: 69px;
+  padding-top: 38px;
 }
 
 .component__buttons-bar_type_login {
-  padding-top: 169px;
+  padding-top: 133px;
 }
 
 .component__button {
@@ -161,6 +149,19 @@
   .component {
     padding-top: 30px;
     padding-bottom: 30px;
+  }
+
+  .component__input-error {
+    min-height: 24px;
+    margin-bottom: 5px;
+  }
+
+  .component__buttons-bar {
+    padding-top: 31px;
+  }
+
+  .component__buttons-bar_type_login {
+    padding-top: 133px;
   }
 
   .component__links {
