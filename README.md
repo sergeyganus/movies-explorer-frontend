@@ -13,7 +13,7 @@
 
 ## Ссылка на макет
 
-Ссылка на пул реквест:
+Ссылка на пул реквест: https://github.com/sergeyganus/movies-explorer-frontend/pull/2
 
 Ссылка на проект: https://creative.movies.nomoredomainsicu.ru/
 
