@@ -17,7 +17,9 @@ function Profile({ loggedIn, onUpdateUserProfile, onLogout }) {
     message: '',
     isSuccess: false
   });
-  const { values, handleChange, setValues, errors, isValid } = useFormWithValidation();
+  const { values, handleChange, setValues, errors, isNameValid, isEmailValid, isValid } = useFormWithValidation();
+  const isFormValid = isNameValid && isEmailValid && isValid;
+
 
   function customHandleChange(e) {
     handleChange(e);
@@ -85,7 +87,7 @@ function Profile({ loggedIn, onUpdateUserProfile, onLogout }) {
 
   function signOut() {
     auth.signOut()
-      .catch((errCode) => console.log(`Временнное решение: ${errCode}`));
+      .catch(() => console.log('При выходе из аккаунта произошла ошибка'));
     onLogout();
     navigate('/', { replace: true });
   }
@@ -158,9 +160,9 @@ function Profile({ loggedIn, onUpdateUserProfile, onLogout }) {
               </button>
             </div>
             <button
-              className={`profile__button ${!isEditProfileBarActive ? 'profile__button_active' : ''} ${!(isValid && customIsValid) ? 'component__button_disabled' : ''} profile__button_type_save-profile`}
+              className={`profile__button ${!isEditProfileBarActive ? 'profile__button_active' : ''} ${!(isFormValid && customIsValid) ? 'profile__button_disabled' : ''} profile__button_type_save-profile`}
               type="submit"
-              disabled={!(isValid && customIsValid)}
+              disabled={!(isFormValid && customIsValid)}
             >
               Сохранить
             </button>

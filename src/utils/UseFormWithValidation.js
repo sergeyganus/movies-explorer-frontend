@@ -9,34 +9,42 @@ export function useFormWithValidation() {
     password: ''
   });
   const [errors, setErrors] = React.useState({});
+  const [isNameValid, setIsNameValid] = React.useState(false);
+  const [isEmailValid, setIsEmailValid] = React.useState(false);
   const [isValid, setIsValid] = React.useState(false);
-
-  const checkEmail = (email) => {
-    return emailRegExp.test(email);
-  };
 
   const checkName = (name) => {
     return nameRegExp.test(name);
+  };
+
+  const checkEmail = (email) => {
+    return emailRegExp.test(email);
   };
 
   const handleChange = (e) => {
     const target = e.target;
     const { name, value } = target;
     let validationMessage = target.validationMessage;
-    let customIsValid = true;
+    let currentIsValid = true;
 
     if (!validationMessage) {
       switch (name) {
-        case 'email':
-          if (!checkEmail(value)) {
-            validationMessage = 'Некорректный email';
-            customIsValid = false;
-          }
-          break;
         case 'name':
           if (!checkName(value)) {
             validationMessage = 'Используйте латиницу, кириллицу, затем пробел или дефис';
-            customIsValid = false;
+            currentIsValid = false;
+            setIsNameValid(false);
+          } else {
+            setIsNameValid(true);
+          }
+          break;
+        case 'email':
+          if (!checkEmail(value)) {
+            validationMessage = 'Некорректный email';
+            currentIsValid = false;
+            setIsEmailValid(false);
+          } else {
+            setIsEmailValid(true);
           }
           break;
         default:
@@ -46,17 +54,19 @@ export function useFormWithValidation() {
 
     setValues({ ...values, [name]: value });
     setErrors({ ...errors, [name]: validationMessage });
-    setIsValid(target.closest("form").checkValidity() && customIsValid);
+    setIsValid(target.closest("form").checkValidity() && currentIsValid);
   };
 
   const resetForm = useCallback(
-    (newValues = {}, newErrors = {}, newIsValid = false) => {
+    (newValues = {}, newErrors = {}, newIsNameValid = false, newIsEmailValid = false, newIsValid = false) => {
       setValues(newValues);
       setErrors(newErrors);
+      setIsNameValid(newIsNameValid);
+      setIsEmailValid(newIsEmailValid);
       setIsValid(newIsValid);
     },
     [setValues, setErrors, setIsValid]
   );
 
-  return { values, handleChange, setValues, errors, isValid, resetForm };
+  return { values, handleChange, setValues, errors, isNameValid, isEmailValid, isValid, resetForm };
 }

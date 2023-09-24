@@ -9,7 +9,9 @@ function Login({ onLogin }) {
   const [customIsValid, setCustomIsValid] = React.useState(true);
   const [messageFromApiText, setMessageFromApiText] = React.useState('');
 
-  const { values, handleChange, errors, isValid, resetForm } = useFormWithValidation();
+  const { values, handleChange, errors, isEmailValid, isValid, resetForm } = useFormWithValidation();
+  const isFormValid = isEmailValid && isValid;
+
   const navigate = useNavigate();
 
   function customHandleChange(e) {
@@ -62,7 +64,7 @@ function Login({ onLogin }) {
         id="user-password-input"
         className={`component__input component__input_type_user-password`}
         name="password"
-        autocomplete="new-password"
+        autoComplete="login-password"
         type="password"
         value={values.password}
         onChange={customHandleChange}
@@ -75,9 +77,9 @@ function Login({ onLogin }) {
       <div className="component__buttons-bar component__buttons-bar_type_login">
         <MessageFromApi message={messageFromApiText} />
         <button
-          className={`component__button ${!(isValid && customIsValid) ? 'component__button_disabled' : ''} component__button_type_login`}
+          className={`component__button ${!(isFormValid && customIsValid) ? 'component__button_disabled' : ''} component__button_type_login`}
           type="submit"
-          disabled={!(isValid && customIsValid)}
+          disabled={!(isFormValid && customIsValid)}
         >
           Войти
         </button>
