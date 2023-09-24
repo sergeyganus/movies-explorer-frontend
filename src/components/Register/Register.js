@@ -93,7 +93,7 @@ function Register({ onRegister, onLogin }) {
         id="user-password-input"
         className={`component__input component__input_type_user-password`}
         name="password"
-        autoComplete="register-password"
+        autoComplete="new-password"
         type="password"
         value={values.password}
         onChange={customHandleChange}
