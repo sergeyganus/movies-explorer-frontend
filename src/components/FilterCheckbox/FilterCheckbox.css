@@ -1,7 +1,7 @@
 .filter-checkbox {
   box-sizing: border-box;
   display: block;
-  padding: 28px 0 39px;
+  padding: 6px 0 39px;
   border-bottom: 1px solid #424242;
 }
 
@@ -51,13 +51,13 @@
 
 @media screen and (max-width: 768px) {
   .filter-checkbox {
-    padding-top: 40px;
+    padding-top: 18px;
   }
 }
 
 @media screen and (max-width: 320px) {
   .filter-checkbox {
-    padding-top: 46px;
+    padding-top: 24px;
   }
 
   .filter-checkbox__name {

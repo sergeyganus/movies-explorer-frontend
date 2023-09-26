@@ -1,7 +1,12 @@
 .more-movies {
+  display: none;
   margin: 0 auto;
   padding: 50px 0 80px;
   max-width: 1140px;
+}
+
+.more-movies_active {
+  display: block;
 }
 
 .more-movies__button {

@@ -1,7 +1,12 @@
 .movies-card-list {
+  display: none;
   margin: 0 auto;
   padding: 70px 0 12px;
   max-width: 1140px;
+}
+
+.movies-card-list_active {
+  display: block;
 }
 
 .movies-card-list__list {

@@ -1,11 +1,43 @@
-import { NavLink } from 'react-router-dom';
+import React from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
 import ComponentWithForm from '../ComponentWithForm/ComponentWithForm';
-import ErrorFromApi from '../ErrorFromApi/ErrorFromApi';
+import MessageFromApi from '../MessageFromApi/MessageFromApi';
+import { useFormWithValidation } from '../../utils/UseFormWithValidation';
+import * as auth from '../../utils/Auth';
 
-function Login() {
-  // Временный обработчик, чтобы не было ошибки при сабмите
-  function handleSubmit(evt) {
-    evt.preventDefault();
+function Login({ onLogin }) {
+  const [customIsValid, setCustomIsValid] = React.useState(true);
+  const [messageFromApiText, setMessageFromApiText] = React.useState('');
+
+  const { values, handleChange, errors, isEmailValid, isValid, resetForm } = useFormWithValidation();
+  const isFormValid = isEmailValid && isValid;
+
+  const navigate = useNavigate();
+
+  function customHandleChange(e) {
+    handleChange(e);
+    setCustomIsValid(true);
+    setMessageFromApiText('');
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    auth.authorize(values.email, values.password)
+      .then((userData) => {
+        resetForm();
+        onLogin({
+          ...userData,
+          email: values.email
+        });
+        navigate('/movies', { replace: true });
+      })
+      .catch((errCode) => {
+        if (errCode === 401) {
+          setMessageFromApiText('Неправильные почта или пароль');
+        }
+        setCustomIsValid(false);
+      });
   }
 
   return (
@@ -18,27 +50,39 @@ function Login() {
       <label className="component__label component__label_type_user-email" htmlFor="user-email-input">E-mail</label>
       <input
         id="user-email-input"
-        className="component__input component__input_type_user-email"
+        className={`component__input component__input_type_user-email`}
         name="email"
-        type="email"
+        type="text"
+        value={values.email}
+        onChange={customHandleChange}
         placeholder="E-mail пользователя"
         required
       />
-      <span className="user-email-input-error component__input-error">Некорректный e-mail</span>
+      <span className="user-email-input-error component__input-error">{errors.email}</span>
       <label className="component__label component__label_type_user-password" htmlFor="user-password-input">Пароль</label>
       <input
         id="user-password-input"
-        className="component__input component__input_type_user-password"
+        className={`component__input component__input_type_user-password`}
         name="password"
+        autoComplete="new-password"
         type="password"
+        value={values.password}
+        onChange={customHandleChange}
         placeholder="Пароль пользователя"
+        minLength="8"
         required
       />
-      <span className="user-password-input-error component__input-error">Некорректный пароль</span>
-      <ErrorFromApi message="Что-то пошло не так..." isActive={false} />
+      <span className="user-password-input-error component__input-error">{errors.password}</span>
 
       <div className="component__buttons-bar component__buttons-bar_type_login">
-        <button className="component__button component__button_type_login" type="submit">Войти</button>
+        <MessageFromApi message={messageFromApiText} />
+        <button
+          className={`component__button ${!(isFormValid && customIsValid) ? 'component__button_disabled' : ''} component__button_type_login`}
+          type="submit"
+          disabled={!(isFormValid && customIsValid)}
+        >
+          Войти
+        </button>
         <div className="component__links">
           <span className="component__text">Ещё не зарегистрированы?</span>
           <NavLink to="/signup" className="component__link">Регистрация</NavLink>

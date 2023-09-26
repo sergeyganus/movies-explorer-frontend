@@ -33,17 +33,13 @@
 }
 
 .search-form__input-error {
-  display: none;
+  display: block;
   margin-top: 10px;
-  margin-bottom: 10px;
   padding-left: 5px;
+  min-height: 12px;
   font-size: 10px;
   line-height: 12px;
   color: #ee3465;
-}
-
-.search-form__input-error_active {
-  display: block;
 }
 
 .search-form__button {
@@ -58,6 +54,15 @@
 
 .search-form__button:hover {
   opacity: 0.8;
+}
+
+.search-form__button_disabled {
+  opacity: 0.4;
+}
+
+.search-form__button_disabled:hover {
+  opacity: 0.4;
+  cursor: default;
 }
 
 @media screen and (max-width: 1280px) {
