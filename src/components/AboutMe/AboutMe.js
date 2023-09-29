@@ -7,14 +7,15 @@ function AboutMe() {
       <h2 className="about-me__title">Студент</h2>
       <div className="about-me__info">
         <div className="about-me__details">
-          <h3 className="about-me__name">Виталий</h3>
+          <h3 className="about-me__name">Сергей Ганус</h3>
           <p className="about-me__summary">
-            Фронтенд-разработчик, 30 лет
+            Фронтенд-разработчик, 33 года
           </p>
           <p className="about-me__description">
-            Я родился и живу в Саратове, закончил факультет экономики СГУ. У меня есть жена
-            и дочь. Я люблю слушать музыку, а ещё увлекаюсь бегом. Недавно начал кодить. С 2015 года работал в компании «СКБ Контур».
-            После того, как прошёл курс по веб-разработке, начал заниматься фриланс-заказами и ушёл с постоянной работы.
+            Закончил ТТИ ЮФУ в г. Таганрог. Обожаю играть в футбол, баскетбол, слушать музыку
+            и программировать. За время обучения на курсе "Веб-разработчик" от Яндекс Практикума
+            изучил следующие инструменты и стек технологий: HTML5, CSS3, JavaScript, React, Express,
+            MongoDB, Node.js, Git, Webpack, API, Nginx, JWT.
           </p>
           <a className="about-me__link" href="https://github.com/sergeyganus" target="_blank" rel="noopener noreferrer">Github</a>
         </div>
